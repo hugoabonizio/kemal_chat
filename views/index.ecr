@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kemal Chat - test</title>
+  <script>
+    window.onload = function () {
+      var feed = document.getElementById('messages')
+      var ws = new WebSocket('ws://' + document.location.host + '/chat')
+      ws.onmessage = function (message) {
+        feed.innerHTML += "<p>" + message.data + "</p>"
+      }
+      var send_btn = document.getElementById('send')
+      send_btn.addEventListener('click', function () {
+        var message = document.getElementById('message')
+        ws.send(message.value)
+        message.value = ''
+      })
+    }
+  </script>
+</head>
+<body>
+  <div id="messages"></div>
+  <input id="message" placeholder="Message..." />
+  <button id="send">Send</button>
+</body>
+</html>

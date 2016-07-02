@@ -1,0 +1,11 @@
+name: kemal_chat
+version: 0.1.0
+
+dependencies:
+  kemal:
+    github: sdogruyol/kemal
+
+authors:
+  - hugoabonizio <hugo_abonizio@hotmail.com>
+
+license: MIT
